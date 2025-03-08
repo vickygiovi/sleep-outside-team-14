@@ -1,3 +1,5 @@
+// Temporary edit to trigger pull request
+
 import { getLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
@@ -26,3 +28,4 @@ function cartItemTemplate(item) {
 }
 
 renderCartContents();
+

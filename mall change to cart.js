@@ -1,0 +1,13 @@
+*   [33ma63c182[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mEE--individual1[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;31morigin/EE--individual1[m[33m, [m[1;32mmain[m[33m)[m Merge pull request #2 from vickygiovi/jh--branch-test
+[31m|[m[32m\[m  
+[31m|[m * [33mf95dbf3[m[33m ([m[1;31morigin/jh--branch-test[m[33m)[m Added name file
+[31m|[m[31m/[m  
+* [33mfed0a3b[m Added name to team.txt file
+*   [33m6df84d2[m Merge pull request #1 from vickygiovi/gc--individual1
+[33m|[m[34m\[m  
+[33m|[m * [33md84c593[m Individual1
+[33m|[m * [33m71d64d7[m[33m ([m[1;31morigin/gc--branch-test[m[33m)[m Branch Test
+[33m|[m[33m/[m  
+* [33m452b6c5[m team.txt
+* [33maf4a7ea[m First Formatting and Linting
+* [33mdc7ecc5[m Initial commit
