@@ -1,5 +1,25 @@
 import { getLocalStorage } from "./utils.mjs";
 
+function cartWithItems() {
+  let totalElem = document.querySelector(".cart-footer")
+  let cartItems = JSON.parse(localStorage.getItem("so-cart")) || []
+  if (cartItems.length > 0) {
+    // alert("There are items")
+    totalElem.style.display = "block"
+  } else {
+    // alert("There are no items")
+    totalElem.style.display = "none"
+  }
+  let total = 0
+  cartItems.forEach(elem => {
+    total = total + elem.FinalPrice
+  });
+
+  totalElem.children[0].textContent = "Total: $" + total
+}
+
+window.addEventListener("load", cartWithItems)
+
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
