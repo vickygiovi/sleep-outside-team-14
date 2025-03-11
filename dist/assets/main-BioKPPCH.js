@@ -1,1 +1,0 @@
-import"./style-D5JaRx9A.js";import{P as c}from"./ProductData-Dx0C3TkS.js";class i{constructor(t,s,o){this.category=t,this.dataSource=s,this.listElement=o}async init(){const t=await this.dataSource.getData();console.log(t)}}const a=new c("tents"),n=new i("tents",a,"");n.init();
