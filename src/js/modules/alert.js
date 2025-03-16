@@ -10,6 +10,7 @@ class Alert {
         if (!this.alertsData || this.alertsData.length === 0) return;
 
         const alertSection = document.createElement('section');
+        
         alertSection.className = 'alert-list';
 
         this.alertsData.forEach(alert => {
