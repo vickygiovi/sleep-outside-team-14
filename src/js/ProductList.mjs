@@ -28,8 +28,16 @@ export default class ProductList {
         // next, render the list – ** future **
         this.renderList(list);
     }
+    sortProduct(list){
+        return list.sort((a,b) => {
+         const nameComparison = a.Name.localeCompare(b.Name);
+         if(nameComparison !== 0) return nameComparison;
+         return a.FinalPrice - b.FinalPrice;
+        })
+    }
 
     renderList(list) {
-        renderListWithTemplate(productCardTemplate, this.listElement, list);
+        const sortedList = this.sortProduct(list);
+        renderListWithTemplate(productCardTemplate, this.listElement, sortedList);
     }
 }
