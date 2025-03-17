@@ -2,25 +2,29 @@
 
 import { getLocalStorage } from "./utils.mjs";
 
+import { loadHeaderFooter } from "./utils.mjs";
+
+loadHeaderFooter();
+
 function cartWithItems() {
-  let totalElem = document.querySelector(".cart-footer")
-  let cartItems = JSON.parse(localStorage.getItem("so-cart")) || []
+  let totalElem = document.querySelector(".cart-footer");
+  let cartItems = JSON.parse(localStorage.getItem("so-cart")) || [];
   if (cartItems.length > 0) {
     // alert("There are items")
-    totalElem.style.display = "block"
+    totalElem.style.display = "block";
   } else {
     // alert("There are no items")
-    totalElem.style.display = "none"
+    totalElem.style.display = "none";
   }
-  let total = 0
-  cartItems.forEach(elem => {
-    total = total + elem.FinalPrice
+  let total = 0;
+  cartItems.forEach((elem) => {
+    total = total + elem.FinalPrice;
   });
 
-  totalElem.children[0].textContent = "Total: $" + total
+  totalElem.children[0].textContent = "Total: $" + total;
 }
 
-window.addEventListener("load", cartWithItems)
+window.addEventListener("load", cartWithItems);
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
@@ -48,4 +52,3 @@ function cartItemTemplate(item) {
 }
 
 renderCartContents();
-
