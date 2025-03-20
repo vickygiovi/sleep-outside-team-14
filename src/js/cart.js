@@ -1,6 +1,6 @@
 // Temporary edit to trigger pull request
 
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 function cartWithItems() {
   let totalElem = document.querySelector(".cart-footer");
@@ -28,6 +28,13 @@ function renderCartContents() {
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
 }
 
+function removeItem(id) {
+  let cartItems = getLocalStorage("so-cart");
+  let cartItemsRemoved = cartItems.filter((item) => item.Id != id);
+  setLocalStorage("so-cart", cartItemsRemoved);
+  renderCartContents();
+}
+
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
@@ -42,14 +49,18 @@ function cartItemTemplate(item) {
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
   <p class="cart-card__quantity">qty: 1</p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
-  <button onclick="remove()">X</button>
+  <button class="remove" id="${item.Id}">X</button>
 </li>`;
 
   return newItem;
 }
 
-function remove() {
-  alert("hola");
-}
-
 renderCartContents();
+
+const removeButton = document.querySelectorAll(".remove");
+removeButton.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    let productid = event.target.id;
+    removeItem(productid);
+  });
+});
