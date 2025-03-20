@@ -1,6 +1,7 @@
 // Temporary edit to trigger pull request
 
 import { getLocalStorage } from "./utils.mjs";
+import { loadHeaderFooter } from "./utils.mjs";
 
 function cartWithItems() {
   let totalElem = document.querySelector(".cart-footer")
@@ -48,4 +49,5 @@ function cartItemTemplate(item) {
 }
 
 renderCartContents();
+loadHeaderFooter();
 
