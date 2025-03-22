@@ -1,3 +1,5 @@
+import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+
 function convertToJson(res) {
     if (res.ok) {
         return res.json();
@@ -22,25 +24,42 @@ export default class ProductDetails {
         return products.find((item) => item.Id === id);
     }
     async init() {
-        // use the datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
-        // the product details are needed before rendering the HTML
-        // once the HTML is rendered, add a listener to the Add to Cart button
-        // Notice the .bind(this). This callback will not work if the bind(this) is missing. Review the readings from this week on 'this' to understand why.
+        this.product = await this.dataSource.findProductById(this.productId);
         document
-            .getElementById('addToCart')
-            .addEventListener('click', this.addToCartHandler.bind(this));
+            .getElementById("addToCart")
+            .addEventListener("click", this.addProductToCart.bind(this));
         this.renderProductDetails()
     }
-    addProductToCart(product) {
-        const cartItems = JSON.parse(localStorage.getItem("so-cart")) || []; // get cart array of items from local storage if null set to empty array
-        cartItems.push(product);
-        localStorage.setItem("so-cart", JSON.stringify(cartItems));
+    addProductToCart() {
+        const cartItems = getLocalStorage("so-cart") || []; // get cart array of items from local storage if null set to empty array
+        cartItems.push(this.product);
+        localStorage.setItem("so-cart", cartItems);
     }
-    async addToCartHandler(e) {
-        const product = await this.dataSource.findProductById(e.target.dataset.id);
-        this.addProductToCart(product);
-      }
+    // async addToCartHandler(e) {
+    //     const product = await this.dataSource.findProductById(e.target.dataset.id);
+    //     this.addProductToCart(product);
+    //   }
     renderProductDetails() {
-
+      productDetailsTemplate(this.product);
     }
+
+    
 }
+function productDetailsTemplate(product) {
+    document.querySelector("h2").textContent = product.Category.charAt(0).toUpperCase() + product.Category.slice(1);
+    document.querySelector("#p-brand").textContent = product.Brand.Name;
+    document.querySelector("#p-name").textContent = product.NameWithoutBrand;
+  
+    const productImage = document.querySelector("#p-image");
+    productImage.src = product.Images.PrimaryExtraLarge;
+    productImage.alt = product.NameWithoutBrand;
+    const euroPrice = new Intl.NumberFormat("de-DE",
+      {
+        style: "currency", currency: "EUR",
+      }).format(Number(product.FinalPrice) * 0.85);
+    document.querySelector("#p-price").textContent = `${euroPrice}`;
+    document.querySelector("#p-color").textContent = product.Colors[0].ColorName;
+    document.querySelector("#p-description").innerHTML = product.DescriptionHtmlSimple;
+  
+    document.querySelector("#add-to-cart").dataset.id = product.Id;
+  }
