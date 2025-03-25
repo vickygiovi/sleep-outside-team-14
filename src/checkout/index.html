@@ -62,7 +62,7 @@
       <section class="products">
         <h2>Review & Place your Order</h2>
       </section>
-      <form action="">
+      <form action="" name="checkout">
         <fieldset>
           <legend>Customer Name</legend>
           <input type="text" name="FirstName" placeholder="First Name" required>
@@ -86,9 +86,9 @@
 
 
         </fieldset>
-        <input type="submit" value="Checkout">
+        <button id="submit">Checkout</button>
       </form>
-      <section>
+      <section id="summary">
         <h1>Order Summary</h1>
         <p id="subtotal">Subtotal: </p>
         <p id="tax">Tax: </p>
