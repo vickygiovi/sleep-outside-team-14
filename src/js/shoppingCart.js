@@ -1,7 +1,7 @@
 import { getLocalStorage } from "./utils.mjs";
 
 function cartItemTemplate(item) {
-    const newItem = `<li class="cart-card divider">
+  const newItem = `<li class="cart-card divider">
 <a href="#" class="cart-card__image">
 <img
         src="${item.Image}"
@@ -15,19 +15,19 @@ function cartItemTemplate(item) {
 <p class="cart-card__quantity">qty: 1</p>
 <p class="cart-card__price">$${item.FinalPrice}</p>
 </li>`;
- 
-    return newItem;
+
+  return newItem;
 }
 
 export default class ShoppingCart {
-    constructor(key, parent){
-        this.key = key;
-        this.parent = parent;
-    }
+  constructor(key, parent) {
+    this.key = key;
+    this.parent = parent;
+  }
 
-    renderCartContents() {
-        const cartItems = getLocalStorage(this.key);
-        const htmlItems = cartItems.map((item) => cartItemTemplate(item))
-        document.querySelector(this.parent).innerHtml = htmlItems.join("")
-    }
+  renderCartContents() {
+    const cartItems = getLocalStorage(this.key);
+    const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+    document.querySelector(this.parent).innerHtml = htmlItems.join("");
+  }
 }
