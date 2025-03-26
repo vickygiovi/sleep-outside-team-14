@@ -63,27 +63,29 @@ export default class CheckoutProcess {
   }
 
   async checkout() {
+    const formElement = document.forms["checkout"];
+    const order = formDataToJSON(formElement);
+
+    order.orderDate = new Date().toISOString();
+    order.orderTotal = this.orderTotal;
+    order.tax = this.tax;
+    order.shipping = this.shipping;
+    order.items = packageItems(this.list);
+    //console.log(order);
+
     try {
-      const formElement = document.forms["checkout"];
-      const order = formDataToJSON(formElement);
-
-      order.orderDate = new Date().toISOString();
-      order.orderTotal = this.orderTotal;
-      order.tax = this.tax;
-      order.shipping = this.shipping;
-      order.items = packageItems(this.list);
-      //console.log(order);
-
-      try {
-        const response = await services.checkout(order);
-        console.log(response);
-      } catch (err) {
-        console.log(err);
-        removeAllAlerts();
-        for (let message in err.message) {
-          alertMessage(err.message[message]);
-        }
+      const res = await services.checkout(order);
+      console.log(res);
+      setLocalStorage("so-cart", []);
+      location.assign("/checkout/success.html");
+    } catch (err) {
+      // get rid of any preexisting alerts.
+      removeAllAlerts();
+      for (let message in err.message) {
+        alertMessage(err.message[message]);
       }
-    } catch (err) {}
+
+      console.log(err);
+    }
   }
 }

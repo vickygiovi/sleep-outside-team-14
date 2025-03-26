@@ -3,14 +3,14 @@ import CheckoutProcess from "./CheckoutProcess";
 
 loadHeaderFooter();
 
-const myCheckout = new CheckoutProcess();
+const myCheckout = new CheckoutProcess("so-cart", ".checkout-summary");
+myCheckout.init();
 
-document.querySelector("#checkoutSubmit").addEventListener("click", (e) => {
+document.querySelector('#checkoutSubmit').addEventListener('click', (e) => {
   e.preventDefault();
-  const myForm = document.forms["checkout"];
+  const myForm = document.forms[0];
   const chk_status = myForm.checkValidity();
   myForm.reportValidity();
-  if (chk_status) myCheckout.checkout();
-  window.location.href = "sucess.html";
-  localStorage.clear();
+  if (chk_status)
+    myCheckout.checkout();
 });
