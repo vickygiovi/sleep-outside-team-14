@@ -25,7 +25,8 @@ export default class CheckoutProcess {
     init() {
         this.list = getLocalStorage("so-cart");
         this.calculateItemSummary();
-        document.querySelector("#submit").addEventListener("click", (event) => {
+        document.querySelector("#checkout").addEventListener("submit", (event) => {
+            console.log("Submitted")
             event.preventDefault()
             this.checkout()
         })
