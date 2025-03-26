@@ -23,7 +23,6 @@ export default class ProductDetails {
   constructor(productId, dataSource) {
     this.productId = productId;
     this.product = {};
-    this.price = 0;
     this.dataSource = dataSource;
   }
   async init() {
@@ -34,8 +33,8 @@ export default class ProductDetails {
     // once the HTML is rendered we can add a listener to Add to Cart button
     // Notice the .bind(this). Our callback will not work if we don't include that line. Review the readings from this week on 'this' to understand why.
     const quantityField = document.getElementById("quantity")
-    let price = quantityField.value
-    this.product.quantity = price
+    let quantity = quantityField.value
+    this.product.quantity = quantity
     document
       .getElementById("addToCart")
       .addEventListener("click", this.addToCart.bind(this));
