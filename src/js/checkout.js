@@ -1,21 +1,21 @@
 import CheckoutProcess from "./CheckoutProcess.mjs";
 import { loadHeaderFooter } from "./utils.mjs";
 
-const check = new CheckoutProcess()
-check.init()
+const check = new CheckoutProcess();
+check.init();
 
 loadHeaderFooter();
 
 // function cartWithItems() {
 //     let cartItems = JSON.parse(localStorage.getItem("so-cart")) || [];
-    
+
 //     let total = 0;
 //     cartItems.forEach((elem) => {
 //       total = total + elem.FinalPrice;
 //     });
-  
+
 //     total = total.toFixed(2)
-  
+
 //     return total;
 // }
 
@@ -33,7 +33,7 @@ loadHeaderFooter();
 //         } else {
 //             shipping = shipping + 2
 //         }
-        
+
 //     });
 //     return shipping
 // }

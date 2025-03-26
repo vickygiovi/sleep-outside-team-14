@@ -65,36 +65,46 @@
       <form action="" name="checkout">
         <fieldset>
           <legend>Customer Name</legend>
-          <input type="text" name="FirstName" placeholder="First Name" required>
-          <input type="text" name="LastName" placeholder="Last Name" required>
+          <input type="text" name="fname" placeholder="First Name" required />
+          <input type="text" name="lname" placeholder="Last Name" required />
         </fieldset>
         <fieldset>
           <legend>Address</legend>
-          <input type="text" name="StreetAddress" placeholder="Street Address" required>
-          <input type="text" name="City" placeholder="City" required>
-          <input type="text" name="State" placeholder="State" required>
-          <input type="text" name="ZipCode" placeholder="Zip Code" required>
-
-          
+          <input
+            type="text"
+            name="street"
+            placeholder="Street Address"
+            required
+          />
+          <input type="text" name="city" placeholder="City" required />
+          <input type="text" name="state" placeholder="State" required />
+          <input type="text" name="zip" placeholder="Zip Code" required />
         </fieldset>
         <fieldset>
           <legend>Payment</legend>
-          <input type="text" name="CreditCardNumber" placeholder="Credit Card Number" required>
-          <input type="text" name="ExpirationDate" placeholder="Expiration Date" required>
-          <input type="text" name="SecurityCode" placeholder="Security Code" required>
-
-
-
+          <input
+            type="text"
+            name="cardNumber"
+            placeholder="Credit Card Number"
+            required
+          />
+          <input
+            type="text"
+            name="expiration"
+            placeholder="Expiration Date"
+            required
+          />
+          <input type="text" name="code" placeholder="Security Code" required />
         </fieldset>
-        <button id="submit">Checkout</button>
+        <input type="submit" id="submit" value="Checkout" />
       </form>
       <section id="summary">
         <h1>Order Summary</h1>
-        <p id="subtotal">Subtotal: </p>
-        <p id="tax">Tax: </p>
-        <p id="shipping">Shipping Estimate: </p>
-        <p id="order">Order Total: </p>
-        <p id="items">Amount of items: </p>
+        <p id="subtotal">Subtotal:</p>
+        <p id="tax">Tax:</p>
+        <p id="shipping">Shipping Estimate:</p>
+        <p id="order">Order Total:</p>
+        <p id="items">Amount of items:</p>
       </section>
     </main>
 

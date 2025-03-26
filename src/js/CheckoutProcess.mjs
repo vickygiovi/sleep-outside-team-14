@@ -25,10 +25,10 @@ export default class CheckoutProcess {
     init() {
         this.list = getLocalStorage("so-cart");
         this.calculateItemSummary();
-        // document.querySelector(this.outputSelector + " #submit").addEventListener("click", (event) => {
-        //     event.preventDefault()
-        //     this.checkout()
-        // })
+        document.querySelector("#submit").addEventListener("click", (event) => {
+            event.preventDefault()
+            this.checkout()
+        })
     }
 
     calculateItemSummary() {
@@ -76,7 +76,7 @@ export default class CheckoutProcess {
         order.tax = this.tax;
         order.shipping = this.shipping;
         order.items = packageItems(this.list);
-        //console.log(order);
+        console.log(order);
 
         try {
             const response = await services.checkout(order);
