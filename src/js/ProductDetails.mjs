@@ -1,4 +1,4 @@
-import { setLocalStorage, getLocalStorage } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage, alertMessage, removeAllAlerts } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
@@ -48,6 +48,8 @@ export default class ProductDetails {
     // then add the current product to the list
     cartContents.push(this.product);
     setLocalStorage("so-cart", cartContents);
+    alertMessage("Cart updated")
+    let timer = setTimeout(5000, {removeAllAlerts})
   }
   renderProductDetails(selector) {
     const element = document.querySelector(selector);
