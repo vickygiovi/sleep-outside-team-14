@@ -8,7 +8,7 @@
 
     <title>Sleep Outside | Checkout</title>
 
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
   </head>
 
   <body>
@@ -59,9 +59,46 @@
     <main class="divider">
       <section class="products">
         <h2>Review & Place your Order</h2>
+
+        <form action="/src/checkout/success.html" method="" id="shipping">
+
+          <h3>shipping</h3>
+          
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="fname" required placeholder="Enter your first name">
+        
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lname" required placeholder="Enter your last name">
+        
+          <label for="street">Street</label>
+          <input type="text" id="street" name="street" required placeholder="Enter your street">
+        
+          <label for="city">City</label>
+          <input type="text" id="city" name="city" required placeholder="Enter city name">
+        
+          <label for="zip">Zip Code</label>
+          <input type="text" id="zip" name="zip" required placeholder="Enter your zip code">
+
+          <h3>payment</h3>
+
+          <label for="zip"> Card Number</label>
+          <input type="text" id="card" name="card" required placeholder="Enter your card numb....">
+
+          <label for="Expiration">Expiration</label>
+          <input type="text" id="expire" name="Expiration" required placeholder=" Expiration">
+
+          <label for="security"> Security </label>
+          <input type="text" id="security" name="security" required placeholder="security">
+
+
+        </form>
+        
+
       </section>
+
+
     </main>
 
-    <footer>&copy;NOT a real business</footer>
+    <footer> &copy;NOT a real business for me</footer>
   </body>
 </html>

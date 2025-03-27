@@ -60,3 +60,15 @@ export function setClick(selector, callback) {
   });
   qs(selector).addEventListener("click", callback);
 }
+
+export function alertMessage(message, scroll = true) {
+  const alertContainer = document.createElement('div');
+  alertContainer.classList.add('alert-message');
+  alertContainer.innerHTML = `<p>${message}</p>`;
+  
+  const main = document.querySelector('main');
+  main.insertBefore(alertContainer, main.firstChild);
+  
+  if (scroll) window.scrollTo(0, 0); // Scroll to top
+}
+
