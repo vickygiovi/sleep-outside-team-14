@@ -60,6 +60,35 @@
       <section class="products">
         <h2>Review & Place your Order</h2>
       </section>
+      <form action="" method="POST" name="checkout">
+        <fieldset>
+          <legend>Customer Name</legend>
+          <input type="text" name="fname" placeholder="First Name" required/>
+          <input type="text" name="lname" placeholder="Last Name" required/>
+        </fieldset>
+        <fieldset>
+          <legend>Address</legend>
+          <input type="text" name="street" placeholder="Street Address" required/>
+          <input type="text" name="city" placeholder="City" required/>
+          <input type="text" name="state" placeholder="State" required/>
+          <input type="text" name="zip" placeholder="Zip Code" required/>
+        </fieldset>
+        <fieldset>
+          <legend>Payment</legend>
+          <input type="text" name="cardNumber" placeholder="Credit Card Number" required/>
+          <input type="text" name="expiration" placeholder="Expiration Date" required/>
+          <input type="text" name="code" placeholder="Security Code" required/>
+        </fieldset>
+        <button id="checkout">Checkout</button>
+      </form>
+      <div class="checkout-summary">
+        <h2>Order Summary</h2>
+        <p id="cartTotal">Subtotal: </p>
+        <p id="tax">Tax: </p>
+        <p id="shipping">Shipping Estimate: </p>
+        <p id="orderTotal">Order Total: </p>
+        <p id="num-items">Items: </p>
+      </div>
     </main>
 
     <footer>&copy;NOT a real business</footer>
