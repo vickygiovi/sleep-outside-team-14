@@ -1,4 +1,4 @@
-import { setLocalStorage, getLocalStorage } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage, alertMessage, removeAllAlerts } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
@@ -23,7 +23,6 @@ export default class ProductDetails {
   constructor(productId, dataSource) {
     this.productId = productId;
     this.product = {};
-    this.price = 0;
     this.dataSource = dataSource;
   }
   async init() {
@@ -34,8 +33,8 @@ export default class ProductDetails {
     // once the HTML is rendered we can add a listener to Add to Cart button
     // Notice the .bind(this). Our callback will not work if we don't include that line. Review the readings from this week on 'this' to understand why.
     const quantityField = document.getElementById("quantity")
-    let price = quantityField.value
-    this.product.quantity = parseInt(price)
+    let quantity = quantityField.value
+    this.product.quantity = parseInt(quantity)
     document
       .getElementById("addToCart")
       .addEventListener("click", this.addToCart.bind(this));
@@ -49,6 +48,8 @@ export default class ProductDetails {
     // then add the current product to the list
     cartContents.push(this.product);
     setLocalStorage("so-cart", cartContents);
+    alertMessage("Cart updated")
+    let timer = setTimeout(5000, {removeAllAlerts})
   }
   renderProductDetails(selector) {
     const element = document.querySelector(selector);
