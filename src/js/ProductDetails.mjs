@@ -35,7 +35,7 @@ export default class ProductDetails {
     // Notice the .bind(this). Our callback will not work if we don't include that line. Review the readings from this week on 'this' to understand why.
     const quantityField = document.getElementById("quantity")
     let price = quantityField.value
-    this.product.quantity = price
+    this.product.quantity = parseInt(price)
     document
       .getElementById("addToCart")
       .addEventListener("click", this.addToCart.bind(this));
