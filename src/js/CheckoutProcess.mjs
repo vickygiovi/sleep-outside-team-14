@@ -1,3 +1,4 @@
+import ExternalServices from "./ExternalServices.mjs";
 import { getLocalStorage } from "./utils.mjs";
 
 const services = new ExternalServices();
@@ -27,9 +28,9 @@ export default class CheckoutProcess {
         );
         const amounts = this.list.map((item) => item.FinalPrice);
         this.itemTotal = amounts.reduce((sum, item) => sum + item);
-        summaryElement.innerText = `$${this.itemTotal}`;
+        summaryElement.innerText = `Item total: $${this.itemTotal}`;
 
-        itemNumElement.innerText = this.list.length;
+        itemNumElement.innerText = "Items: " + this.list.length;
 
         this.calculateOrderTotal();
     }
@@ -51,9 +52,9 @@ export default class CheckoutProcess {
         const shipping = document.querySelector(`${this.outputSelector} #shipping`);
         const orderTotal = document.querySelector(`${this.outputSelector} #orderTotal`);
 
-        tax.innerText = `$${this.tax.toFixed(2)}`;
-        shipping.innerText = `$${this.shipping.toFixed(2)}`;
-        orderTotal.innerText = `$${this.orderTotal.toFixed(2)}`;
+        tax.innerText = `Tax: $${this.tax.toFixed(2)}`;
+        shipping.innerText = `Shipping: $${this.shipping.toFixed(2)}`;
+        orderTotal.innerText = `Order total: $${this.orderTotal.toFixed(2)}`;
     }
 
     async checkout() {
@@ -81,7 +82,20 @@ function formDataToJSON(formElement) {
     const formData = new FormData(formElement);
     const convertedJSON = {};
     formData.forEach((value, key) => {
-      convertedJSON[key] = value;
+        convertedJSON[key] = value;
     });
     return convertedJSON;
+}
+
+function packageItems(items) {
+    const simplifiedItems = items.map((item) => {
+        console.log(item);
+        return {
+            id: item.Id,
+            price: item.FinalPrice,
+            name: item.Name,
+            quantity: 1,
+        };
+    });
+    return simplifiedItems;
 }
