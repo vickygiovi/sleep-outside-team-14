@@ -34,6 +34,13 @@ export default class ProductList {
     renderListWithTemplate(productCardTemplate, this.listElement, list);
   }
 
+  // Method to render results under different contexts
+  renderResults(results) {
+    this.listElement.innerHTML = "";
+    // Clear previous results
+    renderListWithTemplate(productCardTemplate, this.listElement, results);
+  }
+
   // render before doing the stretch
   // renderList(list) {
   //   const htmlStrings = list.map(productCardTemplate);
