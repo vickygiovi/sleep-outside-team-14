@@ -156,11 +156,10 @@ button {
 }
 /* End product list card */
 
-.discount-badge .product-detail {
+.product-detail {
   padding: 1em;
   max-width: 500px;
   margin: auto;
-  color: black;
 }
 
 .product-detail img {
@@ -237,15 +236,14 @@ footer {
 }
 
 .discount-badge {
-  border: 1px solid var(--primary-color);
+  background-color: white;
   color: var(--primary-color);
   padding: 5px 10px;
+  border: 2px solid var(--primary-color);
   border-radius: 5px;
   font-weight: bold;
   display: inline-block;
   margin-left: 10px;
-  position: relative;
-  top: -1px;
 }
 
 .navigation {

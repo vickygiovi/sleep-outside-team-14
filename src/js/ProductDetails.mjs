@@ -3,7 +3,7 @@ import { setLocalStorage, getLocalStorage } from "./utils.mjs";
 function productDetailsTemplate(product) {
   const discountPercentage = ((product.SuggestedRetailPrice - product.FinalPrice) / product.SuggestedRetailPrice) * 100;
   const discountMarkup = discountPercentage > 0
-  ? `<div class= "discount-badge">-${Math.round(discountPercentage)}%</d>`
+  ? `<span class= "discount-badge">-${Math.round(discountPercentage)}%</span>`
   : '';
 
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
@@ -13,8 +13,7 @@ function productDetailsTemplate(product) {
       src="${product.Images.PrimaryLarge}"
       alt="${product.NameWithoutBrand}"
     />
-    <p class="product-card__price">$${product.FinalPrice}
-     ${discountMarkup}
+    <p class="product-card__price">$${product.FinalPrice} ${discountMarkup}
     </p>
     <p class="product__color">${product.Colors[0].ColorName}</p>
     <p class="product__description">
