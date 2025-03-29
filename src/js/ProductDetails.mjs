@@ -1,6 +1,11 @@
 import { setLocalStorage, getLocalStorage, alertMessage, removeAllAlerts } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
+  const discountPercentage = ((product.SuggestedRetailPrice - product.FinalPrice) / product.SuggestedRetailPrice) * 100;
+  const discountMarkup = discountPercentage > 0
+  ? `<span class= "discount-badge">-${Math.round(discountPercentage)}%</span>`
+  : '';
+
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
     <h2 class="divider">${product.NameWithoutBrand}</h2>
     <img
@@ -8,7 +13,8 @@ function productDetailsTemplate(product) {
       src="${product.Images.PrimaryLarge}"
       alt="${product.NameWithoutBrand}"
     />
-    <p class="product-card__price">$${product.FinalPrice}</p>
+    <p class="product-card__price">$${product.FinalPrice} ${discountMarkup}
+    </p>
     <p class="product__color">${product.Colors[0].ColorName}</p>
     <p class="product__description">
     ${product.DescriptionHtmlSimple}

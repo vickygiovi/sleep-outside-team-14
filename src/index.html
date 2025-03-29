@@ -23,36 +23,55 @@
         </div>
       </div>
 
-      <div>
-        <a href="product_listing/index.html?category=tents">
-          <img
-            src="https://byui-cse.github.io/wdd330-ww-course/images/category-tents.svg"
-            alt=""
-            height="100"
+      <nav class="navigation">
+        <div class="nav-icons">
+          <a href="product_listing/index.html?category=tents">
+            <img
+              src="https://byui-cse.github.io/wdd330-ww-course/images/category-tents.svg"
+              alt=""
+              height="100"
+            />
+          </a>
+          <a href="product_listing/index.html?category=backpacks">
+            <img
+              src="https://byui-cse.github.io/wdd330-ww-course/images/category-backpacks.svg"
+              alt=""
+              height="100"
+            />
+          </a>
+          <a href="product_listing/index.html?category=sleepingbags">
+            <img
+              src="https://byui-cse.github.io/wdd330-ww-course/images/category-sleepingbags.svg"
+              alt=""
+              height="100"
+            />
+          </a>
+          <a href="product_listing/index.html?category=hammocks">
+            <img
+              src="https://byui-cse.github.io/wdd330-ww-course/images/category-hammocks.svg"
+              alt=""
+              height="100"
+            />
+          </a>
+        </div>
+
+        <!-- Add a search bar -->
+        <form
+          id="searchForm"
+          class="search-form"
+          action="product_listing/index.html"
+          method="GET"
+        >
+          <input
+            type="text"
+            id="searchInput"
+            name="search"
+            placeholder="Search for products..."
+            required
           />
-        </a>
-        <a href="product_listing/index.html?category=backpacks">
-          <img
-            src="https://byui-cse.github.io/wdd330-ww-course/images/category-backpacks.svg"
-            alt=""
-            height="100"
-          />
-        </a>
-        <a href="product_listing/index.html?category=sleepingbags">
-          <img
-            src="https://byui-cse.github.io/wdd330-ww-course/images/category-sleepingbags.svg"
-            alt=""
-            height="100"
-          />
-        </a>
-        <a href="product_listing/index.html?category=hammocks">
-          <img
-            src="https://byui-cse.github.io/wdd330-ww-course/images/category-hammocks.svg"
-            alt=""
-            height="100"
-          />
-        </a>
-      </div>
+          <button type="submit">Search</button>
+        </form>
+      </nav>
 
       <section class="mission">
         <p>We spend too much time these days indoors...sitting usually.</p>
