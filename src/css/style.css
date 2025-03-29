@@ -236,13 +236,15 @@ footer {
 }
 
 .discount-badge {
-  background-color: #ff4747;
-  color: white;
+  border: var(--primary-color);
+  color: var(--primary-color);
   padding: 5px 10px;
   border-radius: 5px;
   font-weight: bold;
   display: inline-block;
   margin-left: 10px;
+  position: relative;
+  top: -1px;
 }
 
 .navigation {
