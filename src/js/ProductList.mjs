@@ -61,46 +61,35 @@ export default class ProductList {
     const productHtml = productDetails.renderProductDetails();  
 
     // Clear previous content and set new content  
-    const productModal = document.getElementById('product-modal');  
-    productModal.querySelector('.product-detail-content').innerHTML = productHtml;  
+    const productDetailDialog = document.getElementById('product-details');  
+    productDetailDialog.querySelector('.product-detail-content').innerHTML = productHtml;  
 
-    // Show the modal  
-    productModal.classList.remove('hidden');  
-    productModal.classList.add('visible');  
+    // Open the dialog  
+    productDetailDialog.showModal();  // Opens the dialog  
 
     // Close modal when close button is clicked  
     document.getElementById('closeModal').addEventListener('click', () => {  
-      this.closeModal();  
+        productDetailDialog.close();  
     });  
 
     // Close modal when clicking outside of it  
-    window.addEventListener('click', (event) => {  
-      const productModal = document.getElementById('product-modal');  
-      if (event.target === productModal) {  
-        this.closeModal();  
-      }  
+    productDetailDialog.addEventListener('click', (event) => {  
+        if (event.target === productDetailDialog) {  
+            productDetailDialog.close();  
+        }  
     });  
   }  
 
-  // Function to close the modal  
-  closeModal() {  
-    const productModal = document.getElementById('product-modal');  
-    productModal.classList.remove('visible');  
-    productModal.classList.add('hidden');  
-    
-    // Clear the content when the modal is closed, if desired (optional)  
-    productModal.querySelector('.product-detail-content').innerHTML = '';  
-  }  
-
+  // Add click event for quick view buttons  
   addQuickViewListeners() {  
-    const quickViewButtons = this.listElement.querySelectorAll('.quick-view');  
-    quickViewButtons.forEach(button => {  
-      button.addEventListener('click', (event) => {  
-        const productId = event.target.getAttribute('data-id');  
-        this.showQuickView(productId);  
+      const quickViewButtons = this.listElement.querySelectorAll('.quick-view');  
+      quickViewButtons.forEach(button => {  
+          button.addEventListener('click', (event) => {  
+              const productId = event.target.getAttribute('data-id');  
+              this.showQuickView(productId);  
+          });  
       });  
-    });  
-  }    
+  }  
 
   // render before doing the stretch
   // renderList(list) {
