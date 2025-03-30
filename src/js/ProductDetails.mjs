@@ -1,4 +1,4 @@
-import { setLocalStorage, getLocalStorage } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage, alertMessage, removeAllAlerts } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
   const discountPercentage = ((product.SuggestedRetailPrice - product.FinalPrice) / product.SuggestedRetailPrice) * 100;
@@ -21,6 +21,7 @@ function productDetailsTemplate(product) {
     </p>
     <div class="product-detail__add">
       <button id="addToCart" data-id="${product.Id}">Add to Cart</button>
+      <input type="number" name="quantity" id="quantity" placeholder="Quantity">
     </div></section>`;
 }
 
@@ -37,6 +38,9 @@ export default class ProductDetails {
     this.renderProductDetails("main");
     // once the HTML is rendered we can add a listener to Add to Cart button
     // Notice the .bind(this). Our callback will not work if we don't include that line. Review the readings from this week on 'this' to understand why.
+    const quantityField = document.getElementById("quantity")
+    let quantity = quantityField.value
+    this.product.quantity = parseInt(quantity)
     document
       .getElementById("addToCart")
       .addEventListener("click", this.addToCart.bind(this));
@@ -53,6 +57,13 @@ export default class ProductDetails {
 
     // Call the function to animate cart icon
     this.animateCartIcon();
+    
+    // Call the function to display alert message
+    alertMessage("Cart updated");
+    
+    
+    // Call the function to remove alerts
+    setTimeout(removeAllAlerts, 5000);
   }
 
   // Function to animate the cart icon
@@ -65,7 +76,7 @@ export default class ProductDetails {
       cartIcon.addEventListener('animationed', () => {
         cartIcon.classList.remove('cart-icon-animate');
       }, {once: true});
-    }
+    }main
   }
 
 
