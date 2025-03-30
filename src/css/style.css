@@ -283,3 +283,38 @@ nav-icons {
   background-color: var(--primary-color);
   color: black;
 }
+
+dialog {
+  border: 1px solid rgb(0 0 0 / 0.1);
+  border-radius: .25rem;
+  padding: 2rem;
+  background-color: var(--light-grey);
+  box-shadow: 0 0 3rem #777;
+  width: 90%;
+  max-width: 600px;
+  text-align: left;
+}
+
+#closeModal {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  float: right;
+}
+
+.product-detail-content {  
+  margin-top: 10px;
+}
+
+dialog[open] {  
+  display: block;
+}
+
+dialog::backdrop {  
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+dialog button:hover {
+  background-color: var(--primary-color);
+}
