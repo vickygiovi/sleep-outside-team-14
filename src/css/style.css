@@ -284,7 +284,7 @@ nav-icons {
   color: black;
 }
 
-dialog {
+/* dialog {
   border: 1px solid rgb(0 0 0 / 0.1);
   border-radius: .25rem;
   padding: 2rem;
@@ -317,4 +317,48 @@ dialog::backdrop {
 
 dialog button:hover {
   background-color: var(--primary-color);
+} */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: var(--light-grey);
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid rgb(0 0 0 / 0.1);
+  border-radius: 0.25rem;
+  box-shadow: 0 0 3rem #777;
+  width: 90%;
+  max-width: 600px;
+  text-align: left;
+}
+
+.close-button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  float: right;
+}
+
+.product-detail-content {
+  margin-top: 10px;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal.visible {
+  display: block;
 }

@@ -61,35 +61,46 @@ export default class ProductList {
     const productHtml = productDetails.renderProductDetails();  
 
     // Clear previous content and set new content  
-    const productDetailDialog = document.getElementById('product-details');  
-    productDetailDialog.querySelector('.product-detail-content').innerHTML = productHtml;  
+    const productModal = document.getElementById('product-modal');  
+    productModal.querySelector('.product-detail-content').innerHTML = productHtml;  
 
-    // Open the dialog  
-    productDetailDialog.showModal();  // Opens the dialog  
+    // Show the modal  
+    productModal.classList.remove('hidden');  
+    productModal.classList.add('visible');  
 
     // Close modal when close button is clicked  
     document.getElementById('closeModal').addEventListener('click', () => {  
-        productDetailDialog.close();  
+      this.closeModal();  
     });  
 
     // Close modal when clicking outside of it  
-    productDetailDialog.addEventListener('click', (event) => {  
-        if (event.target === productDetailDialog) {  
-            productDetailDialog.close();  
-        }  
+    window.addEventListener('click', (event) => {  
+      const productModal = document.getElementById('product-modal');  
+      if (event.target === productModal) {  
+        this.closeModal();  
+      }  
     });  
   }  
 
-  // Add click event for quick view buttons  
-  addQuickViewListeners() {  
-      const quickViewButtons = this.listElement.querySelectorAll('.quick-view');  
-      quickViewButtons.forEach(button => {  
-          button.addEventListener('click', (event) => {  
-              const productId = event.target.getAttribute('data-id');  
-              this.showQuickView(productId);  
-          });  
-      });  
+  // Function to close the modal  
+  closeModal() {  
+    const productModal = document.getElementById('product-modal');  
+    productModal.classList.remove('visible');  
+    productModal.classList.add('hidden');  
+    
+    // Clear the content when the modal is closed, if desired (optional)  
+    productModal.querySelector('.product-detail-content').innerHTML = '';  
   }  
+
+  addQuickViewListeners() {  
+    const quickViewButtons = this.listElement.querySelectorAll('.quick-view');  
+    quickViewButtons.forEach(button => {  
+      button.addEventListener('click', (event) => {  
+        const productId = event.target.getAttribute('data-id');  
+        this.showQuickView(productId);  
+      });  
+    });  
+  }    
 
   // render before doing the stretch
   // renderList(list) {
