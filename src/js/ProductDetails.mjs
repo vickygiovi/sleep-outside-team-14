@@ -54,9 +54,32 @@ export default class ProductDetails {
     // then add the current product to the list
     cartContents.push(this.product);
     setLocalStorage("so-cart", cartContents);
-    alertMessage("Cart updated")
-    let timer = setTimeout(5000, {removeAllAlerts})
+
+    // Call the function to animate cart icon
+    this.animateCartIcon();
+    
+    // Call the function to display alert message
+    alertMessage("Cart updated");
+    
+    
+    // Call the function to remove alerts
+    setTimeout(removeAllAlerts, 5000);
   }
+
+  // Function to animate the cart icon
+  animateCartIcon() {
+    const cartIcon = document.querySelector('.cart svg');
+    if (cartIcon) {
+      cartIcon.classList.add('cart-icon-animate');
+  
+      // Remove the class after the animation ends to allow it to be re-triggered later
+      cartIcon.addEventListener('animationed', () => {
+        cartIcon.classList.remove('cart-icon-animate');
+      }, {once: true});
+    }main
+  }
+
+
   renderProductDetails(selector) {
     const element = document.querySelector(selector);
     element.insertAdjacentHTML(
