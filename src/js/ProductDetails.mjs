@@ -50,7 +50,25 @@ export default class ProductDetails {
     // then add the current product to the list
     cartContents.push(this.product);
     setLocalStorage("so-cart", cartContents);
+
+    // Call the function to animate cart icon
+    this.animateCartIcon();
   }
+
+  // Function to animate the cart icon
+  animateCartIcon() {
+    const cartIcon = document.querySelector('.cart svg');
+    if (cartIcon) {
+      cartIcon.classList.add('cart-icon-animate');
+  
+      // Remove the class after the animation ends to allow it to be re-triggered later
+      cartIcon.addEventListener('animationed', () => {
+        cartIcon.classList.remove('cart-icon-animate');
+      }, {once: true});
+    }
+  }
+
+
   renderProductDetails(selector) {
     const element = document.querySelector(selector);
     element.insertAdjacentHTML(
