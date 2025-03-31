@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sleep Outside | Home</title>
-    <script type="module" crossorigin src="/assets/utils-C7kjnMTT.js"></script>
-    <script type="module" crossorigin src="/assets/ProductData-DxiBLfsP.js"></script>
-    <script type="module" crossorigin src="/assets/main-fugQV24u.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/utils-C-OSnBON.css">
+    <script type="module" crossorigin src="/assets/utils-NAb9tBbk.js"></script>
+    <script type="module" crossorigin src="/assets/ProductDetails-Dtg69m2X.js"></script>
+    <script type="module" crossorigin src="/assets/main-IiZE3HvZ.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/utils-BKWZwlVn.css">
   </head>
 
   <body>
@@ -25,36 +25,55 @@
         </div>
       </div>
 
-      <div>
-        <a href="product_listing/index.html?category=tents">
-          <img
-            src="https://byui-cse.github.io/wdd330-ww-course/images/category-tents.svg"
-            alt=""
-            height="100"
+      <nav class="navigation">
+        <div class="nav-icons">
+          <a href="product_listing/index.html?category=tents">
+            <img
+              src="https://byui-cse.github.io/wdd330-ww-course/images/category-tents.svg"
+              alt=""
+              height="100"
+            />
+          </a>
+          <a href="product_listing/index.html?category=backpacks">
+            <img
+              src="https://byui-cse.github.io/wdd330-ww-course/images/category-backpacks.svg"
+              alt=""
+              height="100"
+            />
+          </a>
+          <a href="product_listing/index.html?category=sleepingbags">
+            <img
+              src="https://byui-cse.github.io/wdd330-ww-course/images/category-sleepingbags.svg"
+              alt=""
+              height="100"
+            />
+          </a>
+          <a href="product_listing/index.html?category=hammocks">
+            <img
+              src="https://byui-cse.github.io/wdd330-ww-course/images/category-hammocks.svg"
+              alt=""
+              height="100"
+            />
+          </a>
+        </div>
+
+        <!-- Add a search bar -->
+        <form
+          id="searchForm"
+          class="search-form"
+          action="product_listing/index.html"
+          method="GET"
+        >
+          <input
+            type="text"
+            id="searchInput"
+            name="search"
+            placeholder="Search for products..."
+            required
           />
-        </a>
-        <a href="product_listing/index.html?category=backpacks">
-          <img
-            src="https://byui-cse.github.io/wdd330-ww-course/images/category-backpacks.svg"
-            alt=""
-            height="100"
-          />
-        </a>
-        <a href="product_listing/index.html?category=sleepingbags">
-          <img
-            src="https://byui-cse.github.io/wdd330-ww-course/images/category-sleepingbags.svg"
-            alt=""
-            height="100"
-          />
-        </a>
-        <a href="product_listing/index.html?category=hammocks">
-          <img
-            src="https://byui-cse.github.io/wdd330-ww-course/images/category-hammocks.svg"
-            alt=""
-            height="100"
-          />
-        </a>
-      </div>
+          <button type="submit">Search</button>
+        </form>
+      </nav>
 
       <section class="mission">
         <p>We spend too much time these days indoors...sitting usually.</p>
