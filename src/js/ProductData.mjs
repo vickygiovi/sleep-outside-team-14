@@ -22,11 +22,4 @@ export default class ProductData {
     const data = await convertToJson(response);
     return data.Result;
   }
-
-  // Function to handle searches
-  async getData(query) {
-    const response = await fetch(baseURL + `products/search/${query}`);
-    const data = await convertToJson(response);
-    return data.Result;
-  }
 }
