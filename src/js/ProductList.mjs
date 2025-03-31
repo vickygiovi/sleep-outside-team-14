@@ -38,18 +38,6 @@ export default class ProductList {
     renderListWithTemplate(productCardTemplate, this.listElement, list);
   }
 
-  // Method to render results under different contexts
-  renderResults(results) {
-    // Clear previous results
-    this.listElement.innerHTML = "";
-    if (results.length > 0) {
-      // Render results
-    renderListWithTemplate(productCardTemplate, this.listElement, results);
-    } else {
-    this.listElement.innerHTML = "<li>No results found.</li>";
-    }
-  }
-
   // Quick view function  
   async showQuickView(productId) {  
     const productDetails = new ProductDetails(productId, this.dataSource);  
