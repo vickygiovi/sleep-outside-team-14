@@ -1,5 +1,5 @@
 import { getParam } from "./utils.mjs";
-import ProductData from "./ProductData.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 import ProductList from "./ProductList.mjs";
 import { loadHeaderFooter } from "./utils.mjs";
 
@@ -8,7 +8,7 @@ const element = document.querySelector(".product-list");
 const title = document.querySelector("#category");
 title.textContent = category.toUpperCase();
 
-const product = new ProductData("tents");
+const product = new ExternalServices("tents");
 const productList = new ProductList("tents", product, element);
 productList.init();
 

@@ -18,6 +18,8 @@ function cartWithItems() {
     total = total + elem.FinalPrice;
   });
 
+  total = total.toFixed(2);
+
   totalElem.children[0].textContent = "Total: $" + total;
 }
 
@@ -27,6 +29,7 @@ function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  cartWithItems();
 }
 
 function removeItem(id) {
