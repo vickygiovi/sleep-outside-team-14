@@ -343,3 +343,49 @@ dialog button:hover {
 .cart-icon-animate {  
   animation: shake 0.5s ease, colorChange 0.5s ease; /* Combined animations */  
 }
+.newsletter-box {
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-width: 400px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.newsletter-box h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.newsletter-box p {
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.newsletter-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.newsletter-box input[type="email"] {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.newsletter-box button {
+  padding: 0.75rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.newsletter-box button:hover {
+  background-color: #0056b3;
+}
